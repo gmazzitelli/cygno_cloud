@@ -1060,7 +1060,112 @@ def write2root(fname, img, id=0, option='update'):
     tf.Close()
     
     
-def ped_(run, path='./ped/', tag = 'LAB', min_image_to_read = 0, max_image_to_read = 0):
+# def ped_(run, path='./ped/', tag = 'LAB', posix=False, min_image_to_read = 0, max_image_to_read = 0, verbose=True):
+#     #
+#     # run numero del run
+#     # path path lettura/scrittura piedistalli
+#     # tag subdirectory dei dati
+#     # min_image_to_read , max_image_to_read  range di imagine sul quale fare i piedistalli 
+#     # max_image_to_read = 0 EQUIVALE A TUTTE LE IMMAGINI
+#     #
+#     import ROOT
+#     import root_numpy as rtnp
+#     import numpy as np
+#     # funzione per fare i piedistalli se gia' non esistino nella diretory
+#     fileoutm = (path+"run%d_mean.h5" % (run))
+#     fileouts = (path+"run%d_sigma.h5" % (run))
+#     try: 
+#         # i file gia' esistono
+#         m_image = read_image_h5(fileoutm)
+#         s_image = read_image_h5(fileouts)
+#         return m_image, s_image
+#     except:
+#         # i file non esistono crea il file delle medie e delle sigma per ogni pixel dell'immagine
+#         if verbose: print (">>> Pedestal Maker! <<<")
+#         try:
+            
+#             print ('Open file: '+s3_root_file(run, tag, posix=posix))
+#             f=ROOT.TFile.Open(s3_root_file(tag, run, posix=posix))
+#             print ('Find Keys: '+str(len(f.GetListOfKeys())))
+#             pic, wfm = root_TH2_name(f)
+#             max_image = len(pic)
+#             max_wfm = len(wfm)
+#             image = rtnp.hist2array(f.Get(pic[0])).T
+#             x_resolution = image.shape[1]
+#             y_resolution = image.shape[0]
+#             print ("# of Images (TH2) Files: %d " % (max_image))
+#             print ("# of Waveform (TH2) Files: %d " % (max_wfm))
+
+#         except:
+#             print ("ERROR: No file %d" % (run))
+#             return
+#         if max_image_to_read == 0:
+#             max_image_to_read=max_image 
+#         print ("WARNING: pdestal from %d to %d" % (min_image_to_read, max_image_to_read))
+
+#         m_image = np.zeros((x_resolution, y_resolution), dtype=np.float64)
+#         s_image = np.zeros((x_resolution, y_resolution), dtype=np.float64)
+
+#         n0 = 0
+#         for iTr in range(min_image_to_read, max_image_to_read):
+#             image = rtnp.hist2array(f.Get(pic[iTr])).T
+#             m_image += image
+#             s_image += image**2 
+#             if verbose and n0 > 0 and n0 % 10==0:  # print progress and debung info for poit 200, 200...
+#                 print ("Debug Image[200,200]: %d => %.2f %.2f %.2f " % (iTr,
+#                                                 image[200,200],
+#                                                 np.sqrt((s_image[200,200] - 
+#                                                         m_image[200,200]**2 
+#                                                           / (n0+1)) / n0),
+#                                                 m_image[200,200]/(n0+1),
+#                                                 ))
+#             n0 += 1
+#         m_image = m_image/n0
+#         s_image = np.sqrt((s_image - m_image**2 * n0) / (n0 - 1))
+
+#         ###### print Info and Save OutPut ######################################
+
+#         if verbose: print ("sigma %f" % (s_image[200,200]))
+#         write_image_h5(fileoutm, m_image)
+#         write_image_h5(fileouts, s_image)
+#         if verbose: print("DONE OUTPUT on files: %s, %s", (fileoutm, fileouts))
+#         return m_image, s_image
+
+class cfile:
+    def __init__(self, file, pic, wfm, max_image, max_wfm, x_resolution, y_resolution):
+        self.file         = file
+        self.pic          = pic 
+        self.wfm          = wfm
+        self.max_image    = max_image
+        self.max_wfm      = max_wfm
+        self.x_resolution = x_resolution
+        self.y_resolution = y_resolution
+    
+def open_(run, tag='LAB', posix=False, verbose=True):
+    import ROOT
+    import root_numpy as rtnp
+    try:
+        f=ROOT.TFile.Open(s3_root_file(run, tag, posix=posix))
+        pic, wfm = root_TH2_name(f)
+        image = rtnp.hist2array(f.Get(pic[0])).T
+        x_resolution = image.shape[1]
+        y_resolution = image.shape[0]
+        max_image = len(pic)
+        max_wfm = len(wfm)
+    except:
+        return "FileError: "+s3_root_file(run, tag, posix=posix)
+    
+
+    if verbose:
+        print ('Open file: '+s3_root_file(run, tag, posix=posix))
+        print ('Find Keys: '+str(len(f.GetListOfKeys())))
+        print ("# of Images (TH2) Files: %d " % (max_image))
+        print ("# of Waveform (TH2) Files: %d " % (max_wfm))
+        print ('Camera X, Y pixel: {:d} {:d} '.format(x_resolution, y_resolution))
+    return cfile(f, pic, wfm, max_image, max_wfm, x_resolution, y_resolution)
+
+
+def ped_(run, path='./ped/', tag = 'LAB', posix=False, min_image_to_read = 0, max_image_to_read = 0, verbose=True):
     #
     # run numero del run
     # path path lettura/scrittura piedistalli
@@ -1071,48 +1176,35 @@ def ped_(run, path='./ped/', tag = 'LAB', min_image_to_read = 0, max_image_to_re
     import ROOT
     import root_numpy as rtnp
     import numpy as np
-    import cygnus_lib as cy
     # funzione per fare i piedistalli se gia' non esistino nella diretory
     fileoutm = (path+"run%d_mean.h5" % (run))
     fileouts = (path+"run%d_sigma.h5" % (run))
     try: 
         # i file gia' esistono
-        m_image = cy.read_image_h5(fileoutm)
-        s_image = cy.read_image_h5(fileouts)
+        print (fileoutm, fileouts)
+        m_image = read_image_h5(fileoutm)
+        s_image = read_image_h5(fileouts)
         return m_image, s_image
     except:
         # i file non esistono crea il file delle medie e delle sigma per ogni pixel dell'immagine
-        print (">>> Pedestal Maker! <<<")
+        if verbose: print (">>> Pedestal Maker! <<<")
         try:
-            
-            print ('Open file: '+s3_root_file(run, tag))
-            f=ROOT.TFile.Open(s3_root_file(tag, run))
-            print ('Find Keys: '+str(len(f.GetListOfKeys())))
-            pic, wfm = cy.root_TH2_name(f)
-            max_image = len(pic)
-            max_wfm = len(wfm)
-            image = rtnp.hist2array(f.Get(pic[0])).T
-            x_resolution = image.shape[1]
-            y_resolution = image.shape[0]
-            print ("# of Images (TH2) Files: %d " % (max_image))
-            print ("# of Waveform (TH2) Files: %d " % (max_wfm))
-
+            cfile = open_(run, tag='LAB', posix=posix, verbose=verbose)
         except:
-            print ("ERROR: No file %d" % (run))
-            return
+            return "FileError: "+str(run)
         if max_image_to_read == 0:
-            max_image_to_read=max_image 
+            max_image_to_read=cfile.max_image
         print ("WARNING: pdestal from %d to %d" % (min_image_to_read, max_image_to_read))
 
-        m_image = np.zeros((x_resolution, y_resolution), dtype=np.float64)
-        s_image = np.zeros((x_resolution, y_resolution), dtype=np.float64)
+        m_image = np.zeros((cfile.x_resolution, cfile.y_resolution), dtype=np.float64)
+        s_image = np.zeros((cfile.x_resolution, cfile.y_resolution), dtype=np.float64)
 
         n0 = 0
         for iTr in range(min_image_to_read, max_image_to_read):
-            image = rtnp.hist2array(f.Get(pic[iTr])).T
+            image = rtnp.hist2array(cfile.file.Get(cfile.pic[iTr])).T
             m_image += image
             s_image += image**2 
-            if n0 > 0 and n0 % 10==0:  # print progress and debung info for poit 200, 200...
+            if verbose and n0 > 0 and n0 % 10==0:  # print progress and debung info for poit 200, 200...
                 print ("Debug Image[200,200]: %d => %.2f %.2f %.2f " % (iTr,
                                                 image[200,200],
                                                 np.sqrt((s_image[200,200] - 
@@ -1126,28 +1218,8 @@ def ped_(run, path='./ped/', tag = 'LAB', min_image_to_read = 0, max_image_to_re
 
         ###### print Info and Save OutPut ######################################
 
-        print ("sigma %f" % (s_image[200,200]))
-        cy.write_image_h5(fileoutm, m_image)
-        cy.write_image_h5(fileouts, s_image)
-        print("DONE OUTPUT on files: %s, %s", (fileoutm, fileouts))
+        if verbose: print ("sigma %f" % (s_image[200,200]))
+        write_image_h5(fileoutm, m_image)
+        write_image_h5(fileouts, s_image)
+        if verbose: print("DONE OUTPUT on files: %s, %s", (fileoutm, fileouts))
         return m_image, s_image
-
-def open_(run, tag='LAB', verbose=True):
-    try:
-        f=ROOT.TFile.Open(s3_root_file(run, tag))
-        pic, wfm = root_TH2_name(f)
-        image = rtnp.hist2array(f.Get(pic[0])).T
-        x_resolution = image.shape[1]
-        y_resolution = image.shape[0]
-        max_image = len(pic)
-        max_wfm = len(wfm)
-        if verbose:
-            print ('Open file: '+s3_root_file(run, tag))
-            print ('Find Keys: '+str(len(f.GetListOfKeys())))
-            print ("# of Images (TH2) Files: %d " % (max_image))
-            print ("# of Waveform (TH2) Files: %d " % (max_wfm))
-            print ('Camera X, Y pixel: {:d} {:d} '.format(x_resolution, y_resolution))
-        return f, max_image, max_wfm, x_resolution, y_resolution
-    except:
-        print ("ERROR: No file %d" % (run))
-        exit(1)
