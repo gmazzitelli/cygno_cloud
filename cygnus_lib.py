@@ -376,7 +376,7 @@ def cluster_par(xc, yc, image):
     for j in range(0, dim):
         x = int(xc[j])
         y = int(yc[j])
-        ph += (image[y,x])
+        ph += (image[y,x]) # waring Y prima di X non e' un errore!
     return ph, dim
 
 def confidence_ellipse(x, y, ax, n_std=3.0, facecolor='none', **kwargs):
@@ -1164,6 +1164,12 @@ def open_(run, tag='LAB', posix=False, verbose=True):
         print ('Camera X, Y pixel: {:d} {:d} '.format(x_resolution, y_resolution))
     return cfile(f, pic, wfm, max_image, max_wfm, x_resolution, y_resolution)
 
+def read_(f, iTr):
+    import ROOT
+    import root_numpy as rtnp
+    pic, wfm = root_TH2_name(f)
+    image = rtnp.hist2array(f.Get(pic[iTr])).T
+    return image
 
 def ped_(run, path='./ped/', tag = 'LAB', posix=False, min_image_to_read = 0, max_image_to_read = 0, verbose=True):
     #
@@ -1202,6 +1208,7 @@ def ped_(run, path='./ped/', tag = 'LAB', posix=False, min_image_to_read = 0, ma
         n0 = 0
         for iTr in range(min_image_to_read, max_image_to_read):
             image = rtnp.hist2array(cfile.file.Get(cfile.pic[iTr])).T
+            image[image<0]=99 #pach per aclune imagini
             m_image += image
             s_image += image**2 
             if verbose and n0 > 0 and n0 % 10==0:  # print progress and debung info for poit 200, 200...
@@ -1214,8 +1221,12 @@ def ped_(run, path='./ped/', tag = 'LAB', posix=False, min_image_to_read = 0, ma
                                                 ))
             n0 += 1
         m_image = m_image/n0
+        
         s_image = np.sqrt((s_image - m_image**2 * n0) / (n0 - 1))
-
+        m_image[np.isnan(s_image)==True]=m_image.mean() # pach per i valori insani di sigma e media
+        s_image[np.isnan(s_image)==True]=1024
+        
+       
         ###### print Info and Save OutPut ######################################
 
         if verbose: print ("sigma %f" % (s_image[200,200]))
@@ -1223,3 +1234,22 @@ def ped_(run, path='./ped/', tag = 'LAB', posix=False, min_image_to_read = 0, ma
         write_image_h5(fileouts, s_image)
         if verbose: print("DONE OUTPUT on files: %s, %s", (fileoutm, fileouts))
         return m_image, s_image
+    
+    
+def img_proj(img, vmin, vmax, log=False):
+    import matplotlib.pyplot as plt
+    import numpy as np
+    print('INFO: mean: {:.2f}, sigma: {:.2f}, N out of range: {} < vmin={}, {} > vmax={}, insane: {}'.format(
+        img.mean(), img.std(), len(img[img<vmin]), vmin, len(img[img>vmax]),vmax, 
+        len(img[np.isnan(img)==True])))
+    fig, ax = plt.subplots(2,2, figsize=(10,10))
+    ax[0,0].imshow(img,  cmap="jet", vmin=vmin,vmax=vmax, aspect="auto")
+    x = np.linspace(img.shape[1], 1, img.shape[1])
+    #x = np.linspace(1, img.shape[0], img.shape[0])
+    ax[0,1].plot(np.sum(img, axis=1),x , 'b-')
+    
+    x = np.linspace(1, img.shape[0], img.shape[0])
+    ax[1,0].plot(x, np.sum(img, axis=0), 'r-')
+    ax[1,1].hist(img.ravel(), bins=vmax-vmin, range=(vmin,vmax))
+    if log: ax[1,1].set_yscale('log')
+    plt.show()
