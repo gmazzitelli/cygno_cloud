@@ -462,9 +462,9 @@ def poit_3d(points, image):
     ########### if 3D #############
     points_3d = []
     for j in range(len(points)):
-        x = points[j,0]
-        y = points[j,1]
-        z = image[int(y),int(x)]
+        y = points[j,0]
+        x = points[j,1]
+        z = image[int(y),int(x)] # non è un errore Y al posto di X causa asse invertito in python delle imagine
         points_3d.append([y,x,z]) 
 
     return points_3d
