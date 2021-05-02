@@ -346,30 +346,6 @@ def root_TH2_name(root_file):
 
 
 
-def confidence_ellipse_par(x, y):
-    from matplotlib.patches import Ellipse
-    import matplotlib.transforms as transforms
-
-    import numpy as np
-    if x.size != y.size:
-        raise ValueError("x and y must be the same size")
-
-    cov = np.cov(x, y)
-
-    if np.sqrt(cov[0, 0] * cov[1, 1]) == 0:
-        width = height = -1
-        pearson = np.nan
-    else:
-        pearson = cov[0, 1]/np.sqrt(cov[0, 0] * cov[1, 1])
-        # Using a special case to obtain the eigenvalues of this
-        # two-dimensionl dataset.
-
-        ell_radius_x = np.sqrt(1 + pearson)
-        ell_radius_y = np.sqrt(1 - pearson)
-        width=ell_radius_x * 2
-        height=ell_radius_y * 2
-    return width, height, pearson
-
 def cluster_par(xc, yc, image):
     ph = 0.
     dim = xc.shape[0]
@@ -379,32 +355,37 @@ def cluster_par(xc, yc, image):
         ph += (image[y,x]) # waring Y prima di X non e' un errore!
     return ph, dim
 
-def confidence_ellipse(x, y, ax, n_std=3.0, facecolor='none', **kwargs):
+def n_std_rectangle(x, y, ax, image = np.array([]), n_std=3.0, facecolor='none', **kwargs):
+    from matplotlib.patches import Rectangle
+    mean_x = x.mean()
+    mean_y = y.mean()
+    std_x = x.std()
+    std_y = y.std()
+    half_width = n_std * std_x
+    half_height = n_std * std_y
+    if image.any():
+        rimage = image*0
+        xs = int(mean_x - half_width)+1
+        xe = int(mean_x + half_width)+1
+        ys = int(mean_y - half_height)+1
+        ye = int(mean_y + half_height)+1
+        # print(ys,ye, xs,xe)
+        rimage[ys:ye, xs:xe]=image[ys:ye, xs:xe]
+        # print (rimage)
+        # print(rimage.sum())
+    else:
+        rimage = np.array([])
+        
+    rectangle = Rectangle(
+        (mean_x - half_width, mean_y - half_height),
+        2 * half_width, 2 * half_height, facecolor=facecolor, **kwargs)
+    return ax.add_patch(rectangle), rimage  
+
+def confidence_ellipse(x, y, ax, image = np.array([]), n_std=3.0, facecolor='none', **kwargs):
     from matplotlib.patches import Ellipse
     import matplotlib.transforms as transforms
     import numpy as np
-    """
-    Create a plot of the covariance confidence ellipse of `x` and `y`
 
-    Parameters
-    ----------
-    x, y : array_like, shape (n, )
-        Input data.
-
-    ax : matplotlib.axes.Axes
-        The axes object to draw the ellipse into.
-
-    n_std : float
-        The number of standard deviations to determine the ellipse's radiuses.
-
-    Returns
-    -------
-    matplotlib.patches.Ellipse
-
-    Other parameters
-    ----------------
-    kwargs : `~matplotlib.patches.Patch` properties
-    """
     if x.size != y.size:
         raise ValueError("x and y must be the same size")
 
@@ -429,15 +410,69 @@ def confidence_ellipse(x, y, ax, n_std=3.0, facecolor='none', **kwargs):
     # calculating the stdandard deviation of y ...
     scale_y = np.sqrt(cov[1, 1]) * n_std
     mean_y = np.mean(y)
-
+    if image.any():
+        # ellsisse e' (x-x0)**2/a**2 + (y-y0)**2/b**2 < 1
+        # print (mean_x, mean_y, ell_radius_x*scale_x, ell_radius_y*scale_y)
+        rimage = image*0
+        ar = abs(pearson)
+        for x in range(image.shape[1]):
+            for y in range(image.shape[0]):
+                xr = (y-mean_y)*np.sin(ar)+(x-mean_x)*np.cos(ar)
+                yr = (y-mean_y)*np.cos(ar)-(x-mean_x)*np.sin(ar)
+                if (xr)**2/(ell_radius_x*scale_x)**2 + (yr)**2/(ell_radius_y*scale_y)**2 < 1:
+                    rimage[y,x]=image[y, x]
+        # print (rimage)
+        # print(rimage.sum())
+    else:
+        rimage = np.array([])
+    
     transf = transforms.Affine2D() \
         .rotate_deg(45) \
         .scale(scale_x, scale_y) \
         .translate(mean_x, mean_y)
 
     ellipse.set_transform(transf + ax.transData)
-    #print (ellipse, transf)
-    return ax.add_patch(ellipse), ellipse
+
+    return ax.add_patch(ellipse), rimage 
+
+def confidence_ellipse_par(x, y, image = np.array([]), n_std=3.0, facecolor='none', **kwargs):
+    import numpy as np
+
+    if x.size != y.size:
+        raise ValueError("x and y must be the same size")
+
+    cov = np.cov(x, y)
+    pearson = cov[0, 1]/np.sqrt(cov[0, 0] * cov[1, 1])
+
+    ell_radius_x = np.sqrt(1 + pearson)
+    ell_radius_y = np.sqrt(1 - pearson)
+                           
+    scale_x = np.sqrt(cov[0, 0]) * n_std
+    mean_x = np.mean(x)
+
+    scale_y = np.sqrt(cov[1, 1]) * n_std
+    mean_y = np.mean(y)
+                           
+    width=scale_x*ell_radius_x * 2 
+    height=scale_y*ell_radius_y * 2              
+    if image.any():
+        # ellsisse e' (x-x0)**2/a**2 + (y-y0)**2/b**2 < 1
+        # print (mean_x, mean_y, ell_radius_x*scale_x, ell_radius_y*scale_y)
+        rimage = image*0
+        ar = abs(pearson)
+        for x in range(image.shape[1]):
+            for y in range(image.shape[0]):
+                xr = (y-mean_y)*np.sin(ar)+(x-mean_x)*np.cos(ar)
+                yr = (y-mean_y)*np.cos(ar)-(x-mean_x)*np.sin(ar)
+                if (xr)**2/(ell_radius_x*scale_x)**2 + (yr)**2/(ell_radius_y*scale_y)**2 < 1:
+                    rimage[y,x]=image[y, x]
+        # print (rimage)
+        # print(rimage.sum())
+    else:
+        rimage = np.array([])
+
+    
+    return width, height, pearson, rimage.sum(), np.size(rimage[rimage>0])
 
 
 def cluster_elips(points):
