@@ -9,6 +9,9 @@ import glob, os
 import re
 import sys
 
+class myError(Exception):
+    pass
+
 
 # ############################################################################################################################ #
 # DATA Archive
@@ -1122,7 +1125,7 @@ def open_(run, tag='LAB', posix=False, verbose=True):
         max_image = len(pic)
         max_wfm = len(wfm)
     except:
-        return "FileError: "+s3_root_file(run, tag, posix=posix)
+        raise myError("openFileError: "+s3_root_file(run, tag, posix=posix))
     
 
     if verbose:
@@ -1166,7 +1169,7 @@ def ped_(run, path='./ped/', tag = 'LAB', posix=False, min_image_to_read = 0, ma
         try:
             cfile = open_(run, tag='LAB', posix=posix, verbose=verbose)
         except:
-            return "FileError: "+str(run)
+            raise myError("openRunError: "+str(run))
         if max_image_to_read == 0:
             max_image_to_read=cfile.max_image
         print ("WARNING: pdestal from %d to %d" % (min_image_to_read, max_image_to_read))
