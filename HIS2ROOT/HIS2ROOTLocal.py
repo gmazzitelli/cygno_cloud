@@ -1,4 +1,8 @@
+#!/usr/bin/python3
+
 import os,sys
+
+
 
 if not os.path.isfile('cygnus_lib.py'): 
     # to update library remove file cygnus_lib.py
@@ -14,7 +18,6 @@ def main(path):
             filein, run = cy.ruttalo(his_file)
             print ("file {} done".format(filein))
     print("ALL DONE")
-
 
 if __name__ == '__main__':
     import re
