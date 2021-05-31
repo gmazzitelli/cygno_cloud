@@ -1100,6 +1100,34 @@ def write2root(fname, img, id=0, option='update'):
     [h2.SetBinContent(bx,by,img[bx,by]) for bx in range(nx) for by in range(ny)]
     h2.Write()
     tf.Close()
+
+def ruttalo(his_file):
+    import numpy as np 
+    import ROOT
+    from root_numpy import array2hist
+    stem, _ = os.path.splitext(his_file)
+    his = openHIS(his_file)
+    outname = stem+'.root' 
+    rf = ROOT.TFile(outname,'recreate')
+
+    runN = stem.split('run')[-1]
+    run = runN if len(runN) else 'XXXX'
+
+    for idx, section in enumerate(his):
+        if idx % 5 == 0: print("transferring image ",idx)
+        (nx,ny) = section.shape 
+        title = stem + ('_%04d' % idx)
+        postfix = 'run{run}_ev{ev}'.format(run=run,ev=idx)
+        title = 'pic_{pfx}'.format(pfx=postfix)
+        h2 = ROOT.TH2S(title,title,nx,0,nx,ny,0,ny)
+        h2.GetXaxis().SetTitle('x')
+        h2.GetYaxis().SetTitle('y')
+        _ = array2hist(np.fliplr(np.transpose(section)),h2)
+        h2.Write()
+    rf.Close()
+    return outname, run
+path = './'
+   
     
 ##########################################
 
