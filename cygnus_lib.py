@@ -283,9 +283,29 @@ def s3_root_file(run, tag='LAB', posix=True):
     if posix:
         BASE_URL  = "/workarea/cloud-storage/cygnus/"
     else:
-        BASE_URL  = "https://s3.cloud.infn.it/v1/AUTH_2ebf769785574195bde2ff418deac08a/cygnus/"
-    file_root = ('Data/'+tag+'/histograms_Run%05d.root' % run)
+        #BASE_URL  = "https://s3.cloud.infn.it/v1/AUTH_2ebf769785574195bde2ff418deac08a/cygnus/"
+        BASE_URL  = "https://s3.cloud.infn.it/v1/AUTH_2ebf769785574195bde2ff418deac08a/cygno-data/"
+    file_root = (tag+'/histograms_Run%05d.root' % run)
     return BASE_URL+file_root
+
+def swift_s3_image_h5(file):
+    # dump imagine in sola lettura
+    import requests
+    import os
+    #BASE_URL  = "https://s3.cloud.infn.it/v1/AUTH_2ebf769785574195bde2ff418deac08a/cygnus/"
+    BASE_URL  = "https://s3.cloud.infn.it/v1/AUTH_2ebf769785574195bde2ff418deac08a/cygno-data/"
+
+    url = BASE_URL+file
+    r = requests.get(url)
+    tmpname = "./tmp." + str(os.getpid()) + ".h5"
+    with open(tmpname, 'wb') as tmp:
+            tmp.write(r.content)
+    image = read_image_h5(tmpname)
+    try:
+        os.remove(tmpname)
+    except OSError:
+        pass
+    return image
 
 def reporthook(blocknum, blocksize, totalsize):
     import sys
