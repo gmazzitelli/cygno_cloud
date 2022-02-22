@@ -1,0 +1,271 @@
+Host: wn-pod-7b4747c8cd-ljslg
+rascale:  1
+WARNING: pdestal from 0 to 200
+WRITING ...
+DONE OUTPUT maen file: ./mean_Run04183 sigma file: ./sigma_Run04183
+light over Th: 29686491.47 
+Open file: https://s3.cloud.infn.it/v1/AUTH_2ebf769785574195bde2ff418deac08a/cygnus/Data/LAB/histograms_Run04185.root
+Find Keys: 200
+# of Images (TH2) Files: 200 
+# of Waveform (TH2) Files: 0 
+Camera X, Y pixel: 2304 2304 
+>>>> Processing RUN:  4185 Event:  0
+DEBUG: number of points, clusters: 376638 266
+Elapsed time 10 events: 13.9
+['iTr: 0.00', 'cluster_lable: 266.00', 'pixels: 267.00', 'photons: 1400.90', 'ph_pixels: 5.25', 'x0start: 1245.00', 'y0start: 2158.00', 'x0end: 1251.00', 'y0end: 2175.00', 'width: 20.11', 'height: 25.07', 'pearson: 0.14']
+>>>> Processing RUN:  4185 Event:  1
+>>>> Processing RUN:  4185 Event:  2
+>>>> Processing RUN:  4185 Event:  3
+>>>> Processing RUN:  4185 Event:  4
+>>>> Processing RUN:  4185 Event:  5
+>>>> Processing RUN:  4185 Event:  6
+>>>> Processing RUN:  4185 Event:  7
+>>>> Processing RUN:  4185 Event:  8
+>>>> Processing RUN:  4185 Event:  9
+>>>> Processing RUN:  4185 Event:  10
+DEBUG: number of points, clusters: 373579 296
+Elapsed time 10 events: 156.1
+['iTr: 10.00', 'cluster_lable: 296.00', 'pixels: 275.00', 'photons: 1715.22', 'ph_pixels: 6.24', 'x0start: 1143.00', 'y0start: 2147.00', 'x0end: 1144.00', 'y0end: 2162.00', 'width: 22.79', 'height: 22.50', 'pearson: 0.05']
+>>>> Processing RUN:  4185 Event:  11
+>>>> Processing RUN:  4185 Event:  12
+>>>> Processing RUN:  4185 Event:  13
+>>>> Processing RUN:  4185 Event:  14
+>>>> Processing RUN:  4185 Event:  15
+>>>> Processing RUN:  4185 Event:  16
+>>>> Processing RUN:  4185 Event:  17
+>>>> Processing RUN:  4185 Event:  18
+>>>> Processing RUN:  4185 Event:  19
+>>>> Processing RUN:  4185 Event:  20
+DEBUG: number of points, clusters: 382527 293
+Elapsed time 10 events: 159.8
+['iTr: 20.00', 'cluster_lable: 293.00', 'pixels: 253.00', 'photons: 1248.81', 'ph_pixels: 4.94', 'x0start: 1132.00', 'y0start: 2188.00', 'x0end: 1135.00', 'y0end: 2206.00', 'width: 19.13', 'height: 25.97', 'pearson: -0.09']
+>>>> Processing RUN:  4185 Event:  21
+>>>> Processing RUN:  4185 Event:  22
+>>>> Processing RUN:  4185 Event:  23
+>>>> Processing RUN:  4185 Event:  24
+>>>> Processing RUN:  4185 Event:  25
+>>>> Processing RUN:  4185 Event:  26
+>>>> Processing RUN:  4185 Event:  27
+>>>> Processing RUN:  4185 Event:  28
+>>>> Processing RUN:  4185 Event:  29
+>>>> Processing RUN:  4185 Event:  30
+DEBUG: number of points, clusters: 389948 281
+Elapsed time 10 events: 165.0
+['iTr: 30.00', 'cluster_lable: 281.00', 'pixels: 364.00', 'photons: 1963.70', 'ph_pixels: 5.39', 'x0start: 1158.00', 'y0start: 2181.00', 'x0end: 1164.00', 'y0end: 2203.00', 'width: 19.65', 'height: 34.43', 'pearson: -0.08']
+>>>> Processing RUN:  4185 Event:  31
+>>>> Processing RUN:  4185 Event:  32
+>>>> Processing RUN:  4185 Event:  33
+>>>> Processing RUN:  4185 Event:  34
+>>>> Processing RUN:  4185 Event:  35
+>>>> Processing RUN:  4185 Event:  36
+>>>> Processing RUN:  4185 Event:  37
+>>>> Processing RUN:  4185 Event:  38
+>>>> Processing RUN:  4185 Event:  39
+>>>> Processing RUN:  4185 Event:  40
+DEBUG: number of points, clusters: 378651 293
+Elapsed time 10 events: 164.8
+['iTr: 40.00', 'cluster_lable: 293.00', 'pixels: 322.00', 'photons: 1982.84', 'ph_pixels: 6.16', 'x0start: 1144.00', 'y0start: 2159.00', 'x0end: 1143.00', 'y0end: 2178.00', 'width: 20.14', 'height: 28.02', 'pearson: -0.18']
+>>>> Processing RUN:  4185 Event:  41
+>>>> Processing RUN:  4185 Event:  42
+>>>> Processing RUN:  4185 Event:  43
+>>>> Processing RUN:  4185 Event:  44
+>>>> Processing RUN:  4185 Event:  45
+>>>> Processing RUN:  4185 Event:  46
+>>>> Processing RUN:  4185 Event:  47
+>>>> Processing RUN:  4185 Event:  48
+>>>> Processing RUN:  4185 Event:  49
+>>>> Processing RUN:  4185 Event:  50
+DEBUG: number of points, clusters: 381811 308
+Elapsed time 10 events: 159.1
+['iTr: 50.00', 'cluster_lable: 308.00', 'pixels: 318.00', 'photons: 1828.70', 'ph_pixels: 5.75', 'x0start: 1037.00', 'y0start: 2149.00', 'x0end: 1036.00', 'y0end: 2169.00', 'width: 22.23', 'height: 27.99', 'pearson: -0.08']
+>>>> Processing RUN:  4185 Event:  51
+>>>> Processing RUN:  4185 Event:  52
+>>>> Processing RUN:  4185 Event:  53
+>>>> Processing RUN:  4185 Event:  54
+>>>> Processing RUN:  4185 Event:  55
+>>>> Processing RUN:  4185 Event:  56
+>>>> Processing RUN:  4185 Event:  57
+>>>> Processing RUN:  4185 Event:  58
+>>>> Processing RUN:  4185 Event:  59
+>>>> Processing RUN:  4185 Event:  60
+DEBUG: number of points, clusters: 391095 310
+Elapsed time 10 events: 165.4
+['iTr: 60.00', 'cluster_lable: 310.00', 'pixels: 326.00', 'photons: 1817.13', 'ph_pixels: 5.57', 'x0start: 1167.00', 'y0start: 2095.00', 'x0end: 1169.00', 'y0end: 2115.00', 'width: 21.42', 'height: 27.65', 'pearson: 0.06']
+>>>> Processing RUN:  4185 Event:  61
+>>>> Processing RUN:  4185 Event:  62
+>>>> Processing RUN:  4185 Event:  63
+>>>> Processing RUN:  4185 Event:  64
+>>>> Processing RUN:  4185 Event:  65
+>>>> Processing RUN:  4185 Event:  66
+>>>> Processing RUN:  4185 Event:  67
+>>>> Processing RUN:  4185 Event:  68
+>>>> Processing RUN:  4185 Event:  69
+>>>> Processing RUN:  4185 Event:  70
+DEBUG: number of points, clusters: 383200 304
+Elapsed time 10 events: 166.2
+['iTr: 70.00', 'cluster_lable: 304.00', 'pixels: 159.00', 'photons: 998.32', 'ph_pixels: 6.28', 'x0start: 1233.00', 'y0start: 2191.00', 'x0end: 1234.00', 'y0end: 2203.00', 'width: 14.27', 'height: 19.93', 'pearson: -0.10']
+>>>> Processing RUN:  4185 Event:  71
+>>>> Processing RUN:  4185 Event:  72
+>>>> Processing RUN:  4185 Event:  73
+>>>> Processing RUN:  4185 Event:  74
+>>>> Processing RUN:  4185 Event:  75
+>>>> Processing RUN:  4185 Event:  76
+>>>> Processing RUN:  4185 Event:  77
+>>>> Processing RUN:  4185 Event:  78
+>>>> Processing RUN:  4185 Event:  79
+>>>> Processing RUN:  4185 Event:  80
+DEBUG: number of points, clusters: 402158 384
+Elapsed time 10 events: 161.5
+['iTr: 80.00', 'cluster_lable: 384.00', 'pixels: 301.00', 'photons: 1640.69', 'ph_pixels: 5.45', 'x0start: 1217.00', 'y0start: 2167.00', 'x0end: 1217.00', 'y0end: 2186.00', 'width: 19.10', 'height: 28.67', 'pearson: -0.07']
+>>>> Processing RUN:  4185 Event:  81
+>>>> Processing RUN:  4185 Event:  82
+>>>> Processing RUN:  4185 Event:  83
+>>>> Processing RUN:  4185 Event:  84
+>>>> Processing RUN:  4185 Event:  85
+>>>> Processing RUN:  4185 Event:  86
+>>>> Processing RUN:  4185 Event:  87
+>>>> Processing RUN:  4185 Event:  88
+>>>> Processing RUN:  4185 Event:  89
+>>>> Processing RUN:  4185 Event:  90
+DEBUG: number of points, clusters: 412243 381
+Elapsed time 10 events: 161.9
+['iTr: 90.00', 'cluster_lable: 381.00', 'pixels: 263.00', 'photons: 1592.95', 'ph_pixels: 6.06', 'x0start: 1324.00', 'y0start: 2171.00', 'x0end: 1325.00', 'y0end: 2191.00', 'width: 18.25', 'height: 27.78', 'pearson: -0.09']
+>>>> Processing RUN:  4185 Event:  91
+>>>> Processing RUN:  4185 Event:  92
+>>>> Processing RUN:  4185 Event:  93
+>>>> Processing RUN:  4185 Event:  94
+>>>> Processing RUN:  4185 Event:  95
+>>>> Processing RUN:  4185 Event:  96
+>>>> Processing RUN:  4185 Event:  97
+>>>> Processing RUN:  4185 Event:  98
+>>>> Processing RUN:  4185 Event:  99
+>>>> Processing RUN:  4185 Event:  100
+DEBUG: number of points, clusters: 385233 283
+Elapsed time 10 events: 166.9
+['iTr: 100.00', 'cluster_lable: 283.00', 'pixels: 293.00', 'photons: 1652.63', 'ph_pixels: 5.64', 'x0start: 1215.00', 'y0start: 2182.00', 'x0end: 1217.00', 'y0end: 2201.00', 'width: 20.09', 'height: 26.37', 'pearson: -0.01']
+>>>> Processing RUN:  4185 Event:  101
+>>>> Processing RUN:  4185 Event:  102
+>>>> Processing RUN:  4185 Event:  103
+>>>> Processing RUN:  4185 Event:  104
+>>>> Processing RUN:  4185 Event:  105
+>>>> Processing RUN:  4185 Event:  106
+>>>> Processing RUN:  4185 Event:  107
+>>>> Processing RUN:  4185 Event:  108
+>>>> Processing RUN:  4185 Event:  109
+>>>> Processing RUN:  4185 Event:  110
+DEBUG: number of points, clusters: 405650 335
+Elapsed time 10 events: 171.3
+['iTr: 110.00', 'cluster_lable: 335.00', 'pixels: 270.00', 'photons: 1446.98', 'ph_pixels: 5.36', 'x0start: 1233.00', 'y0start: 2127.00', 'x0end: 1237.00', 'y0end: 2143.00', 'width: 19.19', 'height: 26.40', 'pearson: -0.04']
+>>>> Processing RUN:  4185 Event:  111
+>>>> Processing RUN:  4185 Event:  112
+>>>> Processing RUN:  4185 Event:  113
+>>>> Processing RUN:  4185 Event:  114
+>>>> Processing RUN:  4185 Event:  115
+>>>> Processing RUN:  4185 Event:  116
+>>>> Processing RUN:  4185 Event:  117
+>>>> Processing RUN:  4185 Event:  118
+>>>> Processing RUN:  4185 Event:  119
+>>>> Processing RUN:  4185 Event:  120
+DEBUG: number of points, clusters: 401941 330
+Elapsed time 10 events: 163.6
+['iTr: 120.00', 'cluster_lable: 330.00', 'pixels: 196.00', 'photons: 1045.23', 'ph_pixels: 5.33', 'x0start: 1157.00', 'y0start: 2189.00', 'x0end: 1159.00', 'y0end: 2204.00', 'width: 17.78', 'height: 20.96', 'pearson: 0.09']
+>>>> Processing RUN:  4185 Event:  121
+>>>> Processing RUN:  4185 Event:  122
+>>>> Processing RUN:  4185 Event:  123
+>>>> Processing RUN:  4185 Event:  124
+>>>> Processing RUN:  4185 Event:  125
+>>>> Processing RUN:  4185 Event:  126
+>>>> Processing RUN:  4185 Event:  127
+>>>> Processing RUN:  4185 Event:  128
+>>>> Processing RUN:  4185 Event:  129
+>>>> Processing RUN:  4185 Event:  130
+DEBUG: number of points, clusters: 387220 314
+Elapsed time 10 events: 159.2
+['iTr: 130.00', 'cluster_lable: 314.00', 'pixels: 351.00', 'photons: 1992.64', 'ph_pixels: 5.68', 'x0start: 1098.00', 'y0start: 2168.00', 'x0end: 1106.00', 'y0end: 2188.00', 'width: 22.56', 'height: 28.70', 'pearson: 0.09']
+>>>> Processing RUN:  4185 Event:  131
+>>>> Processing RUN:  4185 Event:  132
+>>>> Processing RUN:  4185 Event:  133
+>>>> Processing RUN:  4185 Event:  134
+>>>> Processing RUN:  4185 Event:  135
+>>>> Processing RUN:  4185 Event:  136
+>>>> Processing RUN:  4185 Event:  137
+>>>> Processing RUN:  4185 Event:  138
+>>>> Processing RUN:  4185 Event:  139
+>>>> Processing RUN:  4185 Event:  140
+DEBUG: number of points, clusters: 418664 400
+Elapsed time 10 events: 180.0
+['iTr: 140.00', 'cluster_lable: 400.00', 'pixels: 370.00', 'photons: 2035.38', 'ph_pixels: 5.50', 'x0start: 1110.00', 'y0start: 2177.00', 'x0end: 1111.00', 'y0end: 2198.00', 'width: 23.24', 'height: 28.86', 'pearson: 0.04']
+>>>> Processing RUN:  4185 Event:  141
+>>>> Processing RUN:  4185 Event:  142
+>>>> Processing RUN:  4185 Event:  143
+>>>> Processing RUN:  4185 Event:  144
+>>>> Processing RUN:  4185 Event:  145
+>>>> Processing RUN:  4185 Event:  146
+>>>> Processing RUN:  4185 Event:  147
+>>>> Processing RUN:  4185 Event:  148
+>>>> Processing RUN:  4185 Event:  149
+>>>> Processing RUN:  4185 Event:  150
+DEBUG: number of points, clusters: 381305 303
+Elapsed time 10 events: 163.5
+['iTr: 150.00', 'cluster_lable: 303.00', 'pixels: 349.00', 'photons: 2000.63', 'ph_pixels: 5.73', 'x0start: 1217.00', 'y0start: 2148.00', 'x0end: 1222.00', 'y0end: 2169.00', 'width: 21.84', 'height: 29.91', 'pearson: -0.02']
+>>>> Processing RUN:  4185 Event:  151
+>>>> Processing RUN:  4185 Event:  152
+>>>> Processing RUN:  4185 Event:  153
+>>>> Processing RUN:  4185 Event:  154
+>>>> Processing RUN:  4185 Event:  155
+>>>> Processing RUN:  4185 Event:  156
+>>>> Processing RUN:  4185 Event:  157
+>>>> Processing RUN:  4185 Event:  158
+>>>> Processing RUN:  4185 Event:  159
+>>>> Processing RUN:  4185 Event:  160
+DEBUG: number of points, clusters: 401518 336
+Elapsed time 10 events: 175.3
+['iTr: 160.00', 'cluster_lable: 336.00', 'pixels: 223.00', 'photons: 1199.49', 'ph_pixels: 5.38', 'x0start: 872.00', 'y0start: 2116.00', 'x0end: 872.00', 'y0end: 2134.00', 'width: 14.14', 'height: 28.04', 'pearson: -0.14']
+>>>> Processing RUN:  4185 Event:  161
+>>>> Processing RUN:  4185 Event:  162
+>>>> Processing RUN:  4185 Event:  163
+>>>> Processing RUN:  4185 Event:  164
+>>>> Processing RUN:  4185 Event:  165
+>>>> Processing RUN:  4185 Event:  166
+>>>> Processing RUN:  4185 Event:  167
+>>>> Processing RUN:  4185 Event:  168
+>>>> Processing RUN:  4185 Event:  169
+>>>> Processing RUN:  4185 Event:  170
+DEBUG: number of points, clusters: 385065 306
+Elapsed time 10 events: 173.7
+['iTr: 170.00', 'cluster_lable: 306.00', 'pixels: 311.00', 'photons: 1917.32', 'ph_pixels: 6.17', 'x0start: 991.00', 'y0start: 2114.00', 'x0end: 991.00', 'y0end: 2132.00', 'width: 17.69', 'height: 28.56', 'pearson: -0.07']
+>>>> Processing RUN:  4185 Event:  171
+>>>> Processing RUN:  4185 Event:  172
+>>>> Processing RUN:  4185 Event:  173
+>>>> Processing RUN:  4185 Event:  174
+>>>> Processing RUN:  4185 Event:  175
+>>>> Processing RUN:  4185 Event:  176
+>>>> Processing RUN:  4185 Event:  177
+>>>> Processing RUN:  4185 Event:  178
+>>>> Processing RUN:  4185 Event:  179
+>>>> Processing RUN:  4185 Event:  180
+DEBUG: number of points, clusters: 415927 382
+Elapsed time 10 events: 177.9
+['iTr: 180.00', 'cluster_lable: 382.00', 'pixels: 504.00', 'photons: 2560.06', 'ph_pixels: 5.08', 'x0start: 900.00', 'y0start: 2174.00', 'x0end: 904.00', 'y0end: 2199.00', 'width: 24.18', 'height: 36.51', 'pearson: 0.04']
+>>>> Processing RUN:  4185 Event:  181
+>>>> Processing RUN:  4185 Event:  182
+>>>> Processing RUN:  4185 Event:  183
+>>>> Processing RUN:  4185 Event:  184
+>>>> Processing RUN:  4185 Event:  185
+>>>> Processing RUN:  4185 Event:  186
+>>>> Processing RUN:  4185 Event:  187
+>>>> Processing RUN:  4185 Event:  188
+>>>> Processing RUN:  4185 Event:  189
+>>>> Processing RUN:  4185 Event:  190
+DEBUG: number of points, clusters: 375047 283
+Elapsed time 10 events: 173.8
+['iTr: 190.00', 'cluster_lable: 283.00', 'pixels: 332.00', 'photons: 1853.62', 'ph_pixels: 5.58', 'x0start: 1080.00', 'y0start: 2183.00', 'x0end: 1079.00', 'y0end: 2203.00', 'width: 22.45', 'height: 26.51', 'pearson: 0.08']
+>>>> Processing RUN:  4185 Event:  191
+>>>> Processing RUN:  4185 Event:  192
+>>>> Processing RUN:  4185 Event:  193
+>>>> Processing RUN:  4185 Event:  194
+>>>> Processing RUN:  4185 Event:  195
+>>>> Processing RUN:  4185 Event:  196
+>>>> Processing RUN:  4185 Event:  197
+>>>> Processing RUN:  4185 Event:  198
+>>>> Processing RUN:  4185 Event:  199

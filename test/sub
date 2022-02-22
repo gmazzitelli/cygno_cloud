@@ -1,0 +1,7 @@
+universe   = vanilla
+executable = testDBSCAN.py
+log        = testDBSCAN.log
+output     = testDBSCAN.out
+error      = testDBSCAN.error
++OWNER = "condor"
+queue
