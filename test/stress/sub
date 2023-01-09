@@ -1,0 +1,7 @@
+universe   = vanilla
+executable = stress.py
+log        = simple.log
+output     = simple.out
+error      = simple.error
++OWNER = "condor"
+queue
