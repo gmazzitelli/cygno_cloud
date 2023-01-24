@@ -1,0 +1,13 @@
+---- running: 
+win32, /var/lib/condor/.wine
+wine: failed to initialize: libm.so.6: failed to map segment from shared object
+The layer width is 57.0 microns.
+Running event from He of ion 0 for the energy of 1 keV.
+Traceback (most recent call last):
+  File "/usr/local/srim/pysrim_test.py", line 64, in <module>
+    results = trim.run(srim_executable_directory)
+  File "/usr/local/lib/python3.6/dist-packages/srim/srim.py", line 219, in run
+    subprocess.check_call(['wine', str(os.path.join('.', 'TRIM.exe'))])
+  File "/usr/lib/python3.6/subprocess.py", line 311, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['wine', './TRIM.exe']' returned non-zero exit status 1.

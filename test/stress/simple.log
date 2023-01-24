@@ -1,38 +1,38 @@
-000 (417.000.000) 2022-12-21 20:30:04 Job submitted from host: <131.154.96.115:31618?addrs=131.154.96.115-31618&alias=131.154.96.115.myip.cloud.infn.it&noUDP&sock=schedd_22_ab2c>
+000 (010.000.000) 2023-01-09 16:56:43 Job submitted from host: <131.154.96.235:31618?addrs=131.154.96.235-31618&alias=131.154.96.235.myip.cloud.infn.it&noUDP&sock=schedd_22_ab2c>
 ...
-040 (417.000.000) 2022-12-21 20:30:24 Started transferring input files
-	Transferring to host: <10.244.7.94:9618?CCBID=131.154.96.115:30618%3faddrs%3d131.154.96.115-30618%26alias%3dccb-pod-6789f645f5-6sx7p%26noUDP%26sock%3dcollector#81&PrivNet=wn-pod-774dd996bd-wbv48&addrs=10.244.7.94-9618&alias=wn-pod-774dd996bd-wbv48&noUDP&sock=slot1_1_55_809b_11>
+040 (010.000.000) 2023-01-09 16:57:02 Started transferring input files
+	Transferring to host: <10.244.3.19:9618?CCBID=131.154.96.235:30618%3faddrs%3d131.154.96.235-30618%26alias%3dccb-pod-7bb6bddd45-v242f%26noUDP%26sock%3dcollector#1&PrivNet=wn-pod-745c45b7f8-866z4&addrs=10.244.3.19-9618&alias=wn-pod-745c45b7f8-866z4&noUDP&sock=slot1_1_75_981c_6>
 ...
-040 (417.000.000) 2022-12-21 20:30:24 Finished transferring input files
+040 (010.000.000) 2023-01-09 16:57:02 Finished transferring input files
 ...
-001 (417.000.000) 2022-12-21 20:30:25 Job executing on host: <10.244.7.94:9618?CCBID=131.154.96.115:30618%3faddrs%3d131.154.96.115-30618%26alias%3dccb-pod-6789f645f5-6sx7p%26noUDP%26sock%3dcollector#81&PrivNet=wn-pod-774dd996bd-wbv48&addrs=10.244.7.94-9618&alias=wn-pod-774dd996bd-wbv48&noUDP&sock=startd_22_ab2c>
+001 (010.000.000) 2023-01-09 16:57:03 Job executing on host: <10.244.3.19:9618?CCBID=131.154.96.235:30618%3faddrs%3d131.154.96.235-30618%26alias%3dccb-pod-7bb6bddd45-v242f%26noUDP%26sock%3dcollector#1&PrivNet=wn-pod-745c45b7f8-866z4&addrs=10.244.3.19-9618&alias=wn-pod-745c45b7f8-866z4&noUDP&sock=startd_42_b379>
 ...
-006 (417.000.000) 2022-12-21 20:30:34 Image size of job updated: 13464
-	13  -  MemoryUsage of job (MB)
-	13068  -  ResidentSetSize of job (KB)
+006 (010.000.000) 2023-01-09 16:57:11 Image size of job updated: 9504
+	10  -  MemoryUsage of job (MB)
+	9504  -  ResidentSetSize of job (KB)
 ...
-006 (417.000.000) 2022-12-21 20:31:18 Image size of job updated: 712784
-	13  -  MemoryUsage of job (MB)
-	13068  -  ResidentSetSize of job (KB)
+006 (010.000.000) 2023-01-09 16:57:48 Image size of job updated: 367240
+	10  -  MemoryUsage of job (MB)
+	9504  -  ResidentSetSize of job (KB)
 ...
-040 (417.000.000) 2022-12-21 20:31:18 Started transferring output files
+040 (010.000.000) 2023-01-09 16:57:48 Started transferring output files
 ...
-040 (417.000.000) 2022-12-21 20:31:19 Finished transferring output files
+040 (010.000.000) 2023-01-09 16:57:48 Finished transferring output files
 ...
-005 (417.000.000) 2022-12-21 20:31:19 Job terminated.
+005 (010.000.000) 2023-01-09 16:57:48 Job terminated.
 	(1) Normal termination (return value 0)
-		Usr 0 00:03:12, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:01:27, Sys 0 00:00:00  -  Run Remote Usage
 		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
-		Usr 0 00:03:12, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:01:27, Sys 0 00:00:00  -  Total Remote Usage
 		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
-	106  -  Run Bytes Sent By Job
+	78  -  Run Bytes Sent By Job
 	547  -  Run Bytes Received By Job
-	106  -  Total Bytes Sent By Job
+	78  -  Total Bytes Sent By Job
 	547  -  Total Bytes Received By Job
 	Partitionable Resources :    Usage  Request Allocated 
 	   Cpus                 :                 1         1 
-	   Disk (KB)            :       12        1     51006 
-	   Memory (MB)          :       13        1       128 
+	   Disk (KB)            :       12        1     13279 
+	   Memory (MB)          :       10        1       128 
 
-	Job terminated of its own accord at 2022-12-21T20:31:18Z.
+	Job terminated of its own accord at 2023-01-09T16:57:48Z.
 ...

@@ -1,0 +1,11 @@
+universe   = vanilla
+executable = caller.sh
+log        = test.log
+output     = test.out
+error      = test.error
+transfer_input_files = ./pysrim_fulldamage.py
+# transfer_output_files = result.txt # da definire....
+# should_transfer_files = IF_NEEDED
+# when_to_transfer_output = ON_EXIT
++OWNER = "condor"
+queue

@@ -1,0 +1,17 @@
+#!/bin/bash
+# touch /tmp/pippo
+# ls -l /tmp/
+# xvfb-run -a wine /usr/local/srim/TRIM.exe
+export TMP=/tmp
+export DISPLAY=:0
+export TERM=xterm
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export HOME=/root
+echo "--- env: "
+env
+echo "---- running: "
+# xvfb-run -a wine /usr/local/srim/TRIM.exe
+xvfb-run -a python3 pysrim_fulldamage.py 
+# /usr/bin/xvfb-run -a  /usr/bin/wine /usr/local/srim/TRIM.exe
+# /usr/bin/xvfb-run -h
+# /usr/bin/wine --version

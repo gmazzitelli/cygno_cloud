@@ -1,0 +1,7 @@
+universe   = vanilla
+executable = test.py
+log        = test.log
+output     = test.out
+error      = test.error
++OWNER = "condor"
+queue
