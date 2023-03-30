@@ -1,13 +1,34 @@
 ---- running: 
-win32, /var/lib/condor/.wine
-wine: failed to initialize: libm.so.6: failed to map segment from shared object
+condor
+48374e0695e0d6bcc61e5db7680f0259e4a0d0924e389f1fdfaea1921202d110
 The layer width is 57.0 microns.
 Running event from He of ion 0 for the energy of 1 keV.
-Traceback (most recent call last):
-  File "/usr/local/srim/pysrim_test.py", line 64, in <module>
-    results = trim.run(srim_executable_directory)
-  File "/usr/local/lib/python3.6/dist-packages/srim/srim.py", line 219, in run
-    subprocess.check_call(['wine', str(os.path.join('.', 'TRIM.exe'))])
-  File "/usr/lib/python3.6/subprocess.py", line 311, in check_call
-    raise CalledProcessError(retcode, cmd)
-subprocess.CalledProcessError: Command '['wine', './TRIM.exe']' returned non-zero exit status 1.
+The layer width is 57.0 microns.
+Running event from He of ion 1 for the energy of 1 keV.
+Time elapsed for He at 1 keV : 17.199587106704712 seconds
+The layer width is 125.71935930060766 microns.
+Running event from He of ion 0 for the energy of 3 keV.
+The layer width is 125.71935930060766 microns.
+Running event from He of ion 1 for the energy of 3 keV.
+Time elapsed for He at 3 keV : 16.893607139587402 seconds
+The layer width is 18.2 microns.
+Running event from C of ion 0 for the energy of 1 keV.
+The layer width is 18.2 microns.
+Running event from C of ion 1 for the energy of 1 keV.
+Time elapsed for C at 1 keV : 16.8916335105896 seconds
+The layer width is 43.829689272108595 microns.
+Running event from C of ion 0 for the energy of 3 keV.
+The layer width is 43.829689272108595 microns.
+Running event from C of ion 1 for the energy of 3 keV.
+Time elapsed for C at 3 keV : 18.06163191795349 seconds
+The layer width is 13.2 microns.
+Running event from F of ion 0 for the energy of 1 keV.
+The layer width is 13.2 microns.
+Running event from F of ion 1 for the energy of 1 keV.
+Time elapsed for F at 1 keV : 17.15681767463684 seconds
+The layer width is 32.13972433974882 microns.
+Running event from F of ion 0 for the energy of 3 keV.
+The layer width is 32.13972433974882 microns.
+Running event from F of ion 1 for the energy of 3 keV.
+Time elapsed for F at 3 keV : 18.017131328582764 seconds
+Time elapsed in total : 104.220538854599 seconds

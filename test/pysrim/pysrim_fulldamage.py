@@ -57,7 +57,7 @@ for j in ['He','C','F']: # Elements
 
 		# Specify the directory of SRIM.exe
 		# For windows users the path will include C://...
-			srim_executable_directory = '/usr/local/srim/'
+			srim_executable_directory = '/tmp/srim/'
 			outdirectory = '/tmp/pysrim_output/'
 
 		# takes about 10 seconds on my laptop

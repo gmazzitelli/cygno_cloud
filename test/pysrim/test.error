@@ -1,0 +1,10 @@
+0009:err:ole:CoGetClassObject class {f9043c85-f6f2-101a-a3c9-08002b2f49fb} not registered
+0009:err:ole:CoGetClassObject class {f9043c85-f6f2-101a-a3c9-08002b2f49fb} not registered
+0009:err:ole:CoGetClassObject no class object {f9043c85-f6f2-101a-a3c9-08002b2f49fb} could be created for context 0x3
+0009:err:ole:CoGetClassObject class {6262d3a0-531b-11cf-91f6-c2863c385e30} not registered
+0009:err:ole:CoGetClassObject class {6262d3a0-531b-11cf-91f6-c2863c385e30} not registered
+0009:err:ole:CoGetClassObject no class object {6262d3a0-531b-11cf-91f6-c2863c385e30} could be created for context 0x3
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":101"
+      after 207 requests (183 known processed) with 0 events remaining.
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":101"
+      after 63 requests (63 known processed) with 0 events remaining.

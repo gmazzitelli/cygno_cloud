@@ -20,22 +20,39 @@
 # echo "--- env: "
 # env
 echo "---- running: "
-export WINEARCH=''win32''
-export WINEPREFIX=/var/lib/condor/.wine
-export HOME=/var/lib/condor
-echo $WINEARCH, $WINEPREFIX
-sh -c /usr/local/srim/prova.sh
+#export WINEARCH=''win32''
+#export WINEPREFIX=/var/lib/condor/.wine
+#echo $WINEARCH, $WINEPREFIX
+#
+#export HOME=/var/lib/condor
+#export XDG_RUNTIME_DIR=/tmpfs
+#export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# dockerd&
+whoami
+#/usr/bin/dockerd-rootless.sh
+#/usr/bin/dockerd -G condor &
+#docker run hello-world
+mkdir out
+docker run -d --name pys \
+           -v ./:/opt/pysrim \
+           -v ./out:/tmp/output costrouc/pysrim 
+docker cp /pysrim/output.py pys:/usr/local/lib/python3.6/dist-packages/srim/output.py
+docker cp /pysrim/srim.py pys:/usr/local/lib/python3.6/dist-packages/srim/srim.py
+docker exec pys /bin/xvfb-run -a python3.6 /opt/pysrim/pysrim_fulldamage.py
+#sh -c /usr/local/srim/prova.sh
+#df -h
 # xvfb-run -q winetricks -q comdlg32ocx msflxgrd richtx32 vb5run comctl32ocx tabctl32
 
+#xvfb-run winetricks -q comdlg32ocx msflxgrd richtx32 vb5run comctl32ocx tabctl32
+
+#wine cmd.exe /c set
+
+#wine cmd.exe /c echo '%AppData%'
+
 # xvfb-run winetricks -q comdlg32ocx msflxgrd richtx32 vb5run comctl32ocx tabctl32
 
-# wine cmd.exe /c set
-
-# wine cmd.exe /c echo '%AppData%'
-
-# xvfb-run winetricks -q comdlg32ocx msflxgrd richtx32 vb5run comctl32ocx tabctl32
-
-# xvfb-run -a python3 pysrim_fulldamage.py
+#xvfb-run -a python3 pysrim_fulldamage.py
 
 # xvfb-run -a wine /usr/local/srim/TRIM.exe
 # xvfb-run -a python3 /usr/local/srim/pysrim_test.py 
